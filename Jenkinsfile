@@ -16,7 +16,7 @@ pipeline{
     stages{
          
         stage('Git Checkout'){
-                    when { expression {  params.action == 'create' } }
+        when { expression {  params.action == 'create' } }
             steps{
             gitCheckout(
                 branch: "main",
@@ -82,12 +82,12 @@ pipeline{
             }
 	}
 	//stage ('Pushing Jar to Jfrog : python'){
-          when { expression {  params.action == 'create' } }
-          steps{
-            script{
-                jfrogPush()
-                }
-            }
+          //when { expression {  params.action == 'create' } }
+          //steps{
+            //script{
+              //  jfrogPush()
+                //}
+            //}
         //}
         stage('Docker Image Build'){
          when { expression {  params.action == 'create' } }
